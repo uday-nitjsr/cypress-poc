@@ -1,6 +1,10 @@
 # cypress-poc
 This is POC of Cypress. As of now in this readme file I'll be listing my findings of how cypress solves some of the selenium issues
 
+Command to open cypress
+
+`./node_modules/.bin/cypress open`
+
 ## Cons of using selenium handled by cypress
 
 * Has very simple installation
