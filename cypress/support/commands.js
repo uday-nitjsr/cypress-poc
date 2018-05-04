@@ -23,3 +23,18 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("login",(emailId,password)=>{
+	cy.request({
+    		method: 'POST',
+    		url: 'https://test.dealvector.com/auth/login', // baseUrl is prepended to url
+    		form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
+    		body: {
+      			email_id: emailId,
+      			login_password: password
+    		}
+  		}).then((response)=>{
+  			console.log(response)
+  			// window.localStorage.setItem("jwt",response.body.)
+  		})
+})

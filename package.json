@@ -1,0 +1,25 @@
+{
+  "name": "cypress-poc",
+  "version": "1.0.0",
+  "description": "POC for cypress",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^2.1.0"
+  },
+  "devDependencies": {
+    "cypress-cucumber-preprocessor": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uday-nitjsr/cypress-poc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uday-nitjsr/cypress-poc/issues"
+  },
+  "homepage": "https://github.com/uday-nitjsr/cypress-poc#readme"
+}

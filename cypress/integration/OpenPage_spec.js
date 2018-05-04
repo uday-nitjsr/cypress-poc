@@ -1,17 +1,6 @@
 describe('Opening pages directly',function(){
 	beforeEach(function(){
-
-		cy.request({
-    		method: 'POST',
-    		url: 'https://test.dealvector.com/auth/login', // baseUrl is prepended to url
-    		form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
-    		body: {
-      			email_id: 'mmanning@smartfunds.com',
-      			login_password: 'aaa.111'
-    		}
-  		}).then((response)=>{
-  			expect(response.body).to.have.property('code')
-  		})
+		cy.login("mmanning@smartfunds.com","aaa.111")
 	})
 
 	it('Test opening overviewPage', function(){
@@ -80,17 +69,7 @@ describe('try clicking multiple in different tests',function(){
 describe('clicking on checkbox item', function(){
 	beforeEach(function(){
 
-		cy.request({
-    		method: 'POST',
-    		url: 'https://test.dealvector.com/auth/login', // baseUrl is prepended to url
-    		form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
-    		body: {
-      			email_id: 'mmanning@smartfunds.com',
-      			login_password: 'aaa.111'
-    		}
-  		}).then((response)=>{
-  			expect(response.body).to.have.property('code')
-  		})
+		cy.login("mmanning@smartfunds.com","aaa.111")
 	})
 
 	it('on single attempt',function(){
