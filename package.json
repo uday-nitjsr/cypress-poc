@@ -7,7 +7,8 @@
     "cypress": "^2.1.0"
   },
   "devDependencies": {
-    "cypress-cucumber-preprocessor": "^1.0.0"
+    "mocha": "^5.1.1",
+    "mochawesome": "^3.0.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
