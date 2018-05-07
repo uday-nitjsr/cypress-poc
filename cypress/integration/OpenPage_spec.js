@@ -1,6 +1,9 @@
 describe('Opening pages directly',function(){
 	beforeEach(function(){
-		cy.login("mmanning@smartfunds.com","aaa.111")
+		cy.fixture('loginUser')
+		.then((user)=>{
+			cy.login(user[0].username,user[0].password)	
+		})
 	})
 
 	it('Test opening overviewPage', function(){
@@ -43,17 +46,10 @@ describe('Opening pages directly',function(){
 describe('try clicking multiple in different tests',function(){
 	['00084UAG7','004375DW8'].forEach((event)=>{
 		it('clicking on '+event,function(){
-			cy.request({
-    		method: 'POST',
-    		url: 'https://test.dealvector.com/auth/login', // baseUrl is prepended to url
-    		form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
-    		body: {
-      			email_id: 'mmanning@smartfunds.com',
-      			login_password: 'aaa.111'
-    			}
-  			}).then((response)=>{
-  				expect(response.body).to.have.property('code')
-  				})
+			cy.fixture('loginUser')
+			.then((user)=>{
+				cy.login(user[0].username,user[0].password)	
+			})
   			cy.visit('http://test.dealvector.com/bwics#/bwics')
   			cy.get('table.bwic_table div.bt-header-col').contains('Numeric Id').parent().parent()
 			.click()
@@ -69,7 +65,10 @@ describe('try clicking multiple in different tests',function(){
 describe('clicking on checkbox item', function(){
 	beforeEach(function(){
 
-		cy.login("mmanning@smartfunds.com","aaa.111")
+		cy.fixture('loginUser')
+		.then((user)=>{
+			cy.login(user[0].username,user[0].password)	
+		})
 	})
 
 	it('on single attempt',function(){

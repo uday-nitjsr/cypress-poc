@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("login",(emailId,password)=>{
+  cy.log('using login credentials username:'+emailId+' and password:'+password)
 	cy.request({
     		method: 'POST',
     		url: 'https://test.dealvector.com/auth/login', // baseUrl is prepended to url
