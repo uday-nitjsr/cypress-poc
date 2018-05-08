@@ -103,7 +103,7 @@ describe('This is to test login functionality', function(){
 		.should("have.attr","value","email@email.com")
 	})
 
-	it("verify valid login",function(){
+	it("verify valid login with stubbing",function(){
 		cy.server()
 		cy.route("POST","http://localhost:3000/api/users/login",{user:{username:"jacob",email:"jake@jake.jake",token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZjAyOGMzMzUwYTJhYTgyMzliNjJhNiIsInVzZXJuYW1lIjoiamFjb2IiLCJleHAiOjE1MzA5Njk4MzEsImlhdCI6MTUyNTc4NTgzMX0.8uo87tY4329DAnr6B41JvszKjtlIlCS9bFtpWVzcxJ8"}})
 		.as("loginUser")
@@ -118,11 +118,29 @@ describe('This is to test login functionality', function(){
 
 		cy.get("button[type='submit']")
 		.click()
-		.wait("@loginUser")
+		.then(function(){
+			cy.get("ul.navbar-nav a.nav-link")
+			.contains("jacob")
+		})
 
-		// cy.wait(1000)
+	})
 
+	it("verify valid login without stubbing",function(){
+		cy.visit("/login")
+
+		cy.get("input[type='email']")
+		.type("jake@jake.jake")
+
+		cy.get("input[type='password']")
+		.type("jakejake")
+
+		cy.get("button[type='submit']")
+		.click()
+
+		cy.wait(1000)
+		
 		cy.get("ul.navbar-nav a.nav-link")
 		.contains("jacob")
+		
 	})
 })

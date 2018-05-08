@@ -39,3 +39,21 @@ Cypress.Commands.add("login",(emailId,password)=>{
   			// window.localStorage.setItem("jwt",response.body.)
   		})
 })
+
+Cypress.Commands.add("loginConduit",(emailId,password)=>{
+  cy.log('using login credentials username:'+emailId+' and password:'+password)
+  cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/api/users/login', // baseUrl is prepended to url
+        form: false, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
+        body: {
+            user:{
+              email:emailId,
+              password:password
+            }
+        }
+      }).then((response)=>{
+        console.log(response)
+        window.localStorage.setItem("jwt",response.body.user.token)
+      })
+})
