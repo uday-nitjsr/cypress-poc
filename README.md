@@ -22,3 +22,17 @@ In selenium cross browser automation is a myth. The same set of command may work
 * Does not support multi browser - Will be releasing Firefox support
 * Does not support parallel browser - In their roadmap
 * Cannot test scenario which involves new tab
+
+
+## Command to run
+running single spec
+
+`./node_modules/.bin/cypress run --spec ./cypress/integration/conduitExample/login_spec.js --reporter mochawesome`
+
+running headed
+`./node_modules/.bin/cypress run --spec ./cypress/integration/conduitExample/login_spec.js --reporter mochawesome --headed`
+
+running on chrome
+`./node_modules/.bin/cypress run --spec ./cypress/integration/conduitExample/login_spec.js --reporter mochawesome --browser chrome`
+
+
