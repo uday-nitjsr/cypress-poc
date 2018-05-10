@@ -1,7 +1,7 @@
 # cypress-poc
 This is POC of Cypress. As of now in this readme file I'll be listing my findings of how cypress solves some of the selenium issues
 
-Command to open cypress
+Command to open cypress in GUI mode
 
 `./node_modules/.bin/cypress open`
 
@@ -24,15 +24,41 @@ In selenium cross browser automation is a myth. The same set of command may work
 * Cannot test scenario which involves new tab
 
 
-## Command to run
+## Command to run cypress
 running single spec
 
 `./node_modules/.bin/cypress run --spec ./cypress/integration/conduitExample/login_spec.js --reporter mochawesome`
 
 running headed
+
 `./node_modules/.bin/cypress run --spec ./cypress/integration/conduitExample/login_spec.js --reporter mochawesome --headed`
 
 running on chrome
+
 `./node_modules/.bin/cypress run --spec ./cypress/integration/conduitExample/login_spec.js --reporter mochawesome --browser chrome`
 
 
+## Demo application details
+
+backend : Node and express
+follow the steps for back end setup
+
+`git clone https://github.com/gothinkster/react-redux-realworld-example-app.git`
+
+`npm install`
+
+`npm run dev`
+
+make sure you have your mongodb running on port 27017
+
+frontend : React redux
+
+`https://github.com/gothinkster/react-redux-realworld-example-app.git`
+
+`npm install`
+
+`npm start`
+
+make sure application is using your localbackend therefore go to `/src/agent.js` and change `API_ROOT` to `http:\\localhost:3000`
+
+data is present in Conduit-Data.postman_collection.json import this file to postman and create a global or local variable named apiUrl and save its value as `http://localhost:3000/api`
