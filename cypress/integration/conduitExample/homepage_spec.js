@@ -184,6 +184,8 @@ describe("This is to test when user is NOT logged in",function(){
 		.click()
 		.should("have.class","active")
 
+		cy.screenshot()
+
 		cy.get("div.article-preview")
 		.should("be.visible")
 		.each(function($ele,index){

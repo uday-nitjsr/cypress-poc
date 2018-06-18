@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "POC for cypress",
   "main": "index.js",
-  "dependencies": {
-    "cypress": "^2.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "cypress": "^3.0.1",
     "mocha": "^5.1.1",
     "mochawesome": "^3.0.2"
   },
